@@ -117,6 +117,23 @@
             title: 'DonArk Server Chat',
           },
         });
+
+        function replaceCozeLogo() {
+            const observer = new MutationObserver((mutations, observerInstance) => {
+                const logoElement = document.querySelector('.coze-logo-selector'); // Update this selector to match the actual Coze logo element
+                if (logoElement) {
+                    logoElement.style.backgroundImage = 'url(images/YourLogo.png)'; // Update the URL to your logo image
+                    observerInstance.disconnect();
+                }
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', replaceCozeLogo);
     </script>
 </body>
 </html>
